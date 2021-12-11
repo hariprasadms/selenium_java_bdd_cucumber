@@ -1,19 +1,17 @@
 package com.stepDefinitions;
 
-import com.drivers.DriverManager;
-import com.pages.*;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class WelcomePageStepdefs {
+public class KiStepdefs extends PageInitiator {
 
-    private final DriverManager driverManager = new DriverManager();
-    private final WelcomePage iAtWelcomPage = new WelcomePage(driverManager.getDriver());
 
     @After
     public void quit() {
@@ -45,5 +43,30 @@ public class WelcomePageStepdefs {
     @And("I can see my create new quote checkbox")
     public void iCanSeeSeeMyCreateNewQuoteCheckbox() {
         iAtWelcomPage.verifyCreateNewQuoteCheckBoxdisplayed();
+    }
+
+    @When("I can select see my pending quotes checkbox")
+    public void iCanSelectSeeMyPendingQuotesCheckbox() {
+        iAtWelcomPage.clickPendingQuotesCheckBox();
+    }
+
+    @And("click on next button")
+    public void clickOnNextButton() {
+        iAtWelcomPage.clickOnNextButton();
+    }
+
+    @Then("I can see pending quotes page displayed")
+    public void iCanSeePendingQuotesPageDisplayed() {
+        iPendingQuotesPage.seePageTitle();
+        iPendingQuotesPage.verifyPendingQuotesPageText();
+    }
+
+    @And("I can see quote details")
+    public void iCanSeeQuoteDetails() {
+        List<String> pendingQuoteNames = new ArrayList<>();
+        pendingQuoteNames.add("Service Tech Ltd");
+        pendingQuoteNames.add("Logistics Worldwide Inc");
+        pendingQuoteNames.add("XYZ Holdings PLC");
+        iPendingQuotesPage.verifyPendingQuotes(pendingQuoteNames);
     }
 }

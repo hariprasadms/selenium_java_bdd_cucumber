@@ -1,17 +1,20 @@
 package com.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 import static com.utils.Constants.Title.PageTile;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class WelcomePage extends BasePage {
+public class PendingQuotesPage extends BasePage {
 
-    public WelcomePage(WebDriver driver) {
+    public PendingQuotesPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
@@ -19,19 +22,16 @@ public class WelcomePage extends BasePage {
     @FindBy(xpath = "//span[contains(text(),'Next')]")
     private WebElement nextButton;
 
-    @FindBy(xpath = "//span[@class='freebirdFormviewerComponentsQuestionBaseErrorText']")
-    private WebElement msg_ThisIsaRequiredQuestion;
 
-    @FindBy(xpath = "//span[normalize-space()='See my pending quotes']")
-    private WebElement pendingQuotesCheckBox;
-
+    @FindBy(xpath = "//div[@class='freebirdMaterialHeaderbannerPagebreakText freebirdFormviewerViewItemsPagebreakBannerText freebirdCustomFont']")
+    private WebElement pendingQuotesPageTitle;
 
     @FindBy(xpath = "//span[normalize-space()='Create a new quote']")
     private WebElement createNewQuoteCheckBox;
 
-
     @Override
     public void seePageTitle() {
+        waitFor(2);
         assertThat(driver.getTitle(), is(PageTile));
     }
 
@@ -39,23 +39,17 @@ public class WelcomePage extends BasePage {
         nextButton.click();
     }
 
-    public void verifyMandatoryMsgdisplayed() {
-        verifyElementPresent(msg_ThisIsaRequiredQuestion);
+    public void verifyPendingQuotesPageText() {
+        waitFor(2);
+        verifyElementPresent(pendingQuotesPageTitle);
     }
 
-    public void verifyPendingQuotesCheckBoxdisplayed() {
+    public void verifyPendingQuotes(List<String> pendingQuotesNames) {
         waitFor(2);
-        verifyElementPresent(pendingQuotesCheckBox);
-    }
+        for (String pendingQuotesName : pendingQuotesNames) {
+            driver.findElement(By.xpath("//div[normalize-space()='" + pendingQuotesName + "']")).isDisplayed();
+        }
 
-    public void clickPendingQuotesCheckBox() {
-        waitFor(2);
-        pendingQuotesCheckBox.click();
-    }
-
-    public void verifyCreateNewQuoteCheckBoxdisplayed() {
-        waitFor(2);
-        verifyElementPresent(createNewQuoteCheckBox);
     }
 }
 
