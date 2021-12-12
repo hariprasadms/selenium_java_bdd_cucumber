@@ -57,5 +57,10 @@ public class WelcomePage extends BasePage {
         waitFor(2);
         verifyElementPresent(createNewQuoteCheckBox);
     }
+
+    public void clickCreateQuotesCheckBox() {
+        waitFor(2);
+        createNewQuoteCheckBox.click();
+    }
 }
 
