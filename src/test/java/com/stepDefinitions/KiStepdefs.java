@@ -1,5 +1,6 @@
 package com.stepDefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -90,10 +91,11 @@ public class KiStepdefs extends PageInitiator {
         iCreateNewQuotePage.choosePrimaryInsured("Newco Ltd");
     }
 
-    @And("Class of business")
-    public void classOfBussiness() {
-        iCreateNewQuotePage.clickClassOfBusinessCheckBox("Cyber");
+    @And("Class of business {string}")
+    public void classOfBusiness(String string) {
+        iCreateNewQuotePage.clickClassOfBusinessCheckBox(string);
     }
+
 
     @Then("Details of coverage fields displayed")
     public void detailsOfCoverageFieldsDisplayed() {

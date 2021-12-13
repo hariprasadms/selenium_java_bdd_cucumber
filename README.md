@@ -8,7 +8,10 @@ Framework : Cucumber with Page Object Model
 Build Tool : Maven
 
 Github repo - https://github.com/hariprasadms/ki_bdd_automation_by_hari.git
-Test run results - https://hariprasadms.github.io/ki_bddtest.html
+Test run results - 
+https://hariprasadms.github.io/ki_bddtest.html
+https://hariprasadms.github.io/ki_bddtest_1.html
+https://hariprasadms.github.io/ki_bddtest_2.html
 
 Once checked-out the project. Run below command from project root location.
 
