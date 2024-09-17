@@ -8,10 +8,10 @@ Framework : Cucumber with Page Object Model
 Build Tool : Maven
 
 Github repo - https://github.com/hariprasadms/selenium_java_bdd_cucumber.git
+
 Test run results - 
-https://hariprasadms.github.io/ki_bddtest.html
-https://hariprasadms.github.io/ki_bddtest_1.html
-https://hariprasadms.github.io/ki_bddtest_2.html
+
+![img.png](img.png)
 
 Once checked-out the project. Run below command from project root location.
 
