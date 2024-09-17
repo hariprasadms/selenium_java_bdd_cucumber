@@ -1,12 +1,9 @@
 package com.stepDefinitions;
-
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,11 +19,6 @@ public class KiStepdefs extends PageInitiator {
     @Given("I can launch browser and navigate welcome page")
     public void iCanLaunchBrowserAndNavigateWelcomePage() {
         driverManager.launchApplication();
-    }
-
-    @Then("I see welcome page loaded with see my pending quotes and create new quotes")
-    public void iSeeWelcomePageLoaded() {
-        iAtWelcomPage.seePageTitle();
     }
 
     @When("I click on next button, i see mandatory validation message")
@@ -57,7 +49,6 @@ public class KiStepdefs extends PageInitiator {
 
     @Then("I can see pending quotes page displayed")
     public void iCanSeePendingQuotesPageDisplayed() {
-        iPendingQuotesPage.seePageTitle();
         iPendingQuotesPage.verifyPendingQuotesPageText();
     }
 
@@ -105,8 +96,8 @@ public class KiStepdefs extends PageInitiator {
     @When("I choose Inception date, AVM value and premium values")
     public void iChooseInceptionDateAVMValueAndPremiumValues() {
         iCreateNewQuotePage.ChooseInceptionDate();
-        iCreateNewQuotePage.enterAVMValue();
-        iCreateNewQuotePage.enterPremiumValue();
+        iCreateNewQuotePage.enterAVMValue("asdf");
+        iCreateNewQuotePage.enterPremiumValue("asdf");
     }
 
     @Then("a new quote is created successfully")

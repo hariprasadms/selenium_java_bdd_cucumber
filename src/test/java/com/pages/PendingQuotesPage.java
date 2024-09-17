@@ -15,8 +15,7 @@ import static org.hamcrest.Matchers.is;
 public class PendingQuotesPage extends BasePage {
 
     public PendingQuotesPage(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(getDriver(), this);
     }
 
     @FindBy(xpath = "//span[contains(text(),'Next')]")
@@ -29,23 +28,17 @@ public class PendingQuotesPage extends BasePage {
     @FindBy(xpath = "//span[normalize-space()='Create a new quote']")
     private WebElement createNewQuoteCheckBox;
 
-    @Override
-    public void seePageTitle() {
-        waitFor(2);
-        assertThat(driver.getTitle(), is(PageTile));
-    }
-
     public void clickOnNextButton() {
         nextButton.click();
     }
 
     public void verifyPendingQuotesPageText() {
-        waitFor(2);
+        waitFor();
         verifyElementPresent(pendingQuotesPageTitle);
     }
 
     public void verifyPendingQuotes(List<String> pendingQuotesNames) {
-        waitFor(2);
+        waitFor();
         for (String pendingQuotesName : pendingQuotesNames) {
             driver.findElement(By.xpath("//div[normalize-space()='" + pendingQuotesName + "']")).isDisplayed();
         }

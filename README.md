@@ -1,4 +1,4 @@
-# A Sample BDD automation framework designed for KI
+# A comprehensive Selenium Cucumber BDD framework designed using Java.
 
 Technologies used -
 
@@ -7,7 +7,7 @@ Programming : Java
 Framework : Cucumber with Page Object Model
 Build Tool : Maven
 
-Github repo - https://github.com/hariprasadms/ki_bdd_automation_by_hari.git
+Github repo - https://github.com/hariprasadms/selenium_java_bdd_cucumber.git
 Test run results - 
 https://hariprasadms.github.io/ki_bddtest.html
 https://hariprasadms.github.io/ki_bddtest_1.html

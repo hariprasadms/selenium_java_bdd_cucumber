@@ -13,10 +13,12 @@ public class PageInitiator {
     public final CreateNewQuotePage iCreateNewQuotePage;
 
     public PageInitiator() {
+
+
         driverManager = new DriverManager();
-        iAtWelcomPage = new WelcomePage(driverManager.getDriver());
-        iPendingQuotesPage = new PendingQuotesPage(driverManager.getDriver());
-        iCreateNewQuotePage = new CreateNewQuotePage(driverManager.getDriver());
+        iAtWelcomPage = new WelcomePage(BasePage.getInstance().getDriver());
+        iPendingQuotesPage = new PendingQuotesPage(BasePage.getInstance().getDriver());
+        iCreateNewQuotePage = new CreateNewQuotePage(BasePage.getInstance().getDriver());
     }
 
 }

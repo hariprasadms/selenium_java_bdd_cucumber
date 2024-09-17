@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Ki_HariBDDAutomation" />
-        <module name="QualitestSeleniumBDD" />
+        <module name="HariBDDAutomation" />
+        <module name="HariprasadBDDTests" />
+        <module name="HariprasadSeleniumBDD" />
       </profile>
     </annotationProcessing>
   </component>

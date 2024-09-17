@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.Objects;
+
 import static com.utils.Constants.Title.PageTile;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -12,8 +14,7 @@ import static org.hamcrest.Matchers.is;
 public class WelcomePage extends BasePage {
 
     public WelcomePage(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(getDriver(), this);
     }
 
     @FindBy(xpath = "//span[contains(text(),'Next')]")
@@ -29,12 +30,6 @@ public class WelcomePage extends BasePage {
     @FindBy(xpath = "//span[normalize-space()='Create a new quote']")
     private WebElement createNewQuoteCheckBox;
 
-
-    @Override
-    public void seePageTitle() {
-        assertThat(driver.getTitle(), is(PageTile));
-    }
-
     public void clickOnNextButton() {
         nextButton.click();
     }
@@ -44,22 +39,22 @@ public class WelcomePage extends BasePage {
     }
 
     public void verifyPendingQuotesCheckBoxdisplayed() {
-        waitFor(2);
+        waitFor();
         verifyElementPresent(pendingQuotesCheckBox);
     }
 
     public void clickPendingQuotesCheckBox() {
-        waitFor(2);
+        waitFor();
         pendingQuotesCheckBox.click();
     }
 
     public void verifyCreateNewQuoteCheckBoxdisplayed() {
-        waitFor(2);
+        waitFor();
         verifyElementPresent(createNewQuoteCheckBox);
     }
 
     public void clickCreateQuotesCheckBox() {
-        waitFor(2);
+        waitFor();
         createNewQuoteCheckBox.click();
     }
 }

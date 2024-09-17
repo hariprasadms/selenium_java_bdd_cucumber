@@ -12,7 +12,8 @@ public class ConfigProvider {
     private static Properties properties() {
 
         if (properties == null) {
-            File file = new File(System.getProperty("user.dir") + "//src//test//resources//properties//application.properties");
+            File file = new File(System.getProperty("user.dir") +
+                    "//src//test//resources//properties//application.properties");
             FileInputStream fileInput;
             properties = new Properties();
             try {
