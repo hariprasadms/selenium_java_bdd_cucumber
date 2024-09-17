@@ -11,7 +11,7 @@ Github repo - https://github.com/hariprasadms/selenium_java_bdd_cucumber.git
 
 Test run results - 
 
-![img.png](img.png)
+![test_run_report.png](test_run_report.png)
 
 Once checked-out the project. Run below command from project root location.
 
